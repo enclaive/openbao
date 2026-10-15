@@ -9,7 +9,7 @@ module github.com/openbao/openbao/v2
 // updated. If we choose not to do so at some point (e.g. because we don't want some new
 // semantic related to Go module handling), this comment should be updated to explain that.
 
-go 1.27.0
+go 1.27.1
 
 replace github.com/openbao/openbao/api/v2 => ./api
 
@@ -23,6 +23,8 @@ replace github.com/openbao/openbao/sdk/v2 => ./sdk
 
 replace github.com/boltdb/bolt => ./internal/helper/stubbolt
 
+replace github.com/enclaive/openbao/external/vhsm => ./external/vhsm
+
 require (
 	cel.dev/cel-go v0.32.0
 	cloud.google.com/go/monitoring v1.30.0
@@ -33,9 +35,10 @@ require (
 	github.com/cockroachdb/pebble v1.1.5
 	github.com/containerd/platforms v0.2.1
 	github.com/duosecurity/duo_api_golang v0.2.0
+	github.com/enclaive/openbao/external/vhsm v0.0.0-00010101000000-000000000000
 	github.com/evanphx/json-patch/v5 v5.9.11
 	github.com/fatih/color v1.19.0
-	github.com/go-jose/go-jose/v4 v4.1.4
+	github.com/go-jose/go-jose/v4 v4.1.5
 	github.com/go-sql-driver/mysql v1.10.0
 	github.com/go-test/deep v1.1.1
 	github.com/go-viper/mapstructure/v2 v2.5.0
@@ -81,7 +84,7 @@ require (
 	github.com/klauspost/compress v1.19.2
 	github.com/kr/pretty v0.3.1
 	github.com/kr/text v0.2.0
-	github.com/mattn/go-colorable v0.1.15
+	github.com/mattn/go-colorable v0.1.16
 	github.com/mattn/go-isatty v0.0.24
 	github.com/mediocregopher/radix/v4 v4.1.5
 	github.com/mholt/acmez/v3 v3.1.6
@@ -104,8 +107,8 @@ require (
 	github.com/openbao/openbao-template v1.0.1
 	github.com/openbao/openbao/api/auth/approle/v2 v2.0.0
 	github.com/openbao/openbao/api/auth/userpass/v2 v2.0.0
-	github.com/openbao/openbao/api/v2 v2.7.0
-	github.com/openbao/openbao/sdk/v2 v2.6.2
+	github.com/openbao/openbao/api/v2 v2.7.1
+	github.com/openbao/openbao/sdk/v2 v2.7.1
 	github.com/ory/dockertest/v4 v4.0.0
 	github.com/pires/go-proxyproto v0.14.0
 	github.com/posener/complete v1.2.3
@@ -127,14 +130,14 @@ require (
 	go.opentelemetry.io/otel/sdk v1.45.0
 	go.opentelemetry.io/otel/trace v1.45.0
 	go.uber.org/zap v1.28.0
-	golang.org/x/crypto v0.56.0
+	golang.org/x/crypto v0.58.0
 	golang.org/x/exp v0.0.0-20260112195511-716be5621a96
-	golang.org/x/net v0.58.0
+	golang.org/x/net v0.61.0
 	golang.org/x/oauth2 v0.36.0
-	golang.org/x/sync v0.22.0
-	golang.org/x/sys v0.47.0
-	golang.org/x/term v0.45.0
-	golang.org/x/text v0.41.0
+	golang.org/x/sync v0.24.0
+	golang.org/x/sys v0.49.0
+	golang.org/x/term v0.47.0
+	golang.org/x/text v0.43.0
 	google.golang.org/api v0.293.0
 	google.golang.org/grpc v1.83.2
 	google.golang.org/protobuf v1.36.12
@@ -321,9 +324,9 @@ require (
 	go.uber.org/zap/exp v0.3.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.4 // indirect
 	go.yaml.in/yaml/v3 v3.0.5 // indirect
-	golang.org/x/mod v0.38.0 // indirect
-	golang.org/x/time v0.15.0 // indirect
-	golang.org/x/tools v0.48.0 // indirect
+	golang.org/x/mod v0.41.0 // indirect
+	golang.org/x/time v0.16.0 // indirect
+	golang.org/x/tools v0.51.0 // indirect
 	google.golang.org/genproto v0.0.0-20260319201613-d00831a3d3e7 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20260630182238-925bb5da69e7 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260807164820-c8921c73eeea // indirect
