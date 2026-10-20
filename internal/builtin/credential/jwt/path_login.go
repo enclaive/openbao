@@ -179,6 +179,7 @@ func (b *jwtAuthBackend) pathLogin(ctx context.Context, req *logical.Request, d 
 		InternalData: map[string]any{
 			"role":      roleName,
 			"role_type": "native",
+			"claims":    allClaims,
 		},
 		Metadata: tokenMetadata,
 	}
