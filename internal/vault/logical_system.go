@@ -1087,6 +1087,13 @@ func (b *SystemBackend) handleMount(ctx context.Context, req *logical.Request, d
 		}
 		options["version"] = "2"
 
+	case "buckypaper":
+		logicalType = "buckypaper"
+		if options == nil {
+			options = map[string]string{}
+		}
+		options["version"] = "2"
+
 	default:
 		if options != nil && options["version"] != "" {
 			return logical.ErrorResponse("secrets engine %q does not allow setting a version", logicalType),
