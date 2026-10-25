@@ -27,6 +27,7 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/enclaive/openbao/external/vhsm"
 	"github.com/hashicorp/errwrap"
 	log "github.com/hashicorp/go-hclog"
 	metrics "github.com/hashicorp/go-metrics/compat"
@@ -2410,6 +2411,7 @@ func (c *Core) postUnseal(ctx context.Context, ctxCancelFunc context.CancelFunc,
 	c.loginMFABackend.rateLimits = zcache.New[string, uint32](0, 30*time.Second)
 
 	c.logger.Info("post-unseal setup complete")
+	vhsm.PostUnseal(ctx, c)
 	return nil
 }
 
