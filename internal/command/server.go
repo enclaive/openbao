@@ -24,6 +24,7 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/enclaive/openbao/external/vhsm"
 	"github.com/hashicorp/cli"
 	"github.com/hashicorp/errwrap"
 	"github.com/hashicorp/go-hclog"
@@ -949,6 +950,10 @@ func (c *ServerCommand) Run(args []string) int {
 			))
 			c.flagDevRootTokenID = ""
 		}
+	}
+
+	if !vhsm.BeforeServer(c.UI) {
+		return 1
 	}
 
 	// Load the configuration
