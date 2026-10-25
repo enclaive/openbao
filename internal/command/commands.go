@@ -8,6 +8,8 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/enclaive/openbao/external/vhsm"
+	"github.com/enclaive/openbao/external/vhsm/command"
 	"github.com/hashicorp/cli"
 	"github.com/openbao/openbao/sdk/v2/logical"
 	"github.com/openbao/openbao/sdk/v2/physical"
@@ -843,7 +845,9 @@ func initCommands(ui, serverCmdUi cli.Ui, runOpts *RunOptions) map[string]cli.Co
 			}, nil
 		},
 	}
-
+	vhsm.Commands(commands, func() command.Command {
+		return getBaseCommand()
+	})
 	initCommandsEnt(ui, serverCmdUi, runOpts, commands)
 	return commands
 }
