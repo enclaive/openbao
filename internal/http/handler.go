@@ -25,6 +25,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/enclaive/openbao/external/vhsm"
 	"github.com/hashicorp/errwrap"
 	"github.com/hashicorp/go-cleanhttp"
 	"github.com/hashicorp/go-secure-stdlib/parseutil"
@@ -436,6 +437,7 @@ func wrapGenericHandler(core *vault.Core, h http.Handler, props *vault.HandlerPr
 					}
 				}
 			}
+		case vhsm.RegisteredRoute(r.URL.Path):
 		default:
 			respondError(nw, http.StatusNotFound, nil)
 			cancelFunc()

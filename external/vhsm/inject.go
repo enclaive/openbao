@@ -2,6 +2,7 @@ package vhsm
 
 import (
 	"context"
+	"net/http"
 
 	"github.com/enclaive/openbao/external/vhsm/command"
 	"github.com/hashicorp/cli"
@@ -21,3 +22,9 @@ func BeforeServer(_ cli.Ui) bool {
 }
 
 func Commands(_ map[string]cli.CommandFactory, _ func() command.Command) {}
+
+func RegisterRoutes(_ *http.ServeMux, _ Core) {}
+
+func RegisteredRoute(_ string) bool {
+	return false
+}
